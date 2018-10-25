@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hello Sandeep</h1>
+<p>{{request.user}}</p>
+<p>Home Page</p>
+<p>{{brand}}</p>
+<p>{{model}}</p>
+<p>{{year}}</p>
+
+<ul>
+	{% for value in car %}
+		{% if value == 123 %}
+		<li>{{forloop.counter}} {{value|add:22}}</li>
+		{% else %}
+		<li>{{forloop.counter}} {{value}}</li>
+		{% endif %}
+	{% endfor %}
+</ul>
+{% endblock %}
