@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-	<h2>Product details</h2>
-	<p><b>Title : </b>{{title}}</p>
-	<p><b>Description : </b>{{description}}</p>
+	<h2 align="center">Product details</h2>
+	<br>
+	<p><b>Title : </b>{{object.title}}</p>
+	<p><b>Description : </b>{{object.description}}</p>
+	<p><b>Price : </b>{{object.price}}</p>
+	<p><b>Summary : </b>{{object.summary}}</p>
 {% endblock %}
 
 
