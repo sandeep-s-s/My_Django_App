@@ -18,6 +18,10 @@ from django.urls import path
 
 #pages view
 from  pages import views
+
+#Product view
+from  products.views import product_detail_view
+
 #aslo works
 # from  pages.views import home_view
 
@@ -28,6 +32,7 @@ urlpatterns = [
     path('home/', views.home_view),
     path('about/', views.about_view),
     path('contact/', views.contact_view),
+    path('product/', product_detail_view),
     path('admin/', admin.site.urls),
 ]
  

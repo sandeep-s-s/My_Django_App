@@ -8,6 +8,15 @@
 <p>{{model}}</p>
 <p>{{year}}</p>
 
+<!--raw html  -->
+{{html}}
+
+<!-- with filter :-safe -->
+{{html|safe}}
+
+<!-- with striptags -->
+{{html|striptags}}
+
 <ul>
 	{% for value in car %}
 		{% if value == 123 %}

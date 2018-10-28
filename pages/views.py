@@ -9,7 +9,8 @@ def home_view(request ,*args,**kwargs):
   		"brand": "Ford",
   		"model": "Mustang",
   		"year" : 1964,
-  		"car"  : ["Ford", "Volvo", "BMW",123] 
+  		"car"  : ["Ford", "Volvo", "BMW",123] ,
+  		"html" : "<h1>Hello test for filter</h1>" #Test for template tag and filter
 	}
 	return render(request,"home.html",thisdict)
 
