@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .models import Product
 
 from .forms	 import ProductForm
+
+from .forms	 import RawProductForm
 # Create your views here.
 def product_detail_view(request):
 	obj = Product.objects.get(id=1)
@@ -30,3 +32,16 @@ def product_create_view(request):
 			'form': form
 		}
 	return render(request,"product/product_create.html",context)
+
+
+def product_add_view(request):
+	form =RawProductForm(request.POST or None)
+	context = {
+		'form': form
+	}
+	if request.method == "POST" :
+		# form =RawProductForm(request.POST)
+		if form.is_valid() :
+			Product.objects.create(**form.cleaned_data)
+	return render(request,"product/product_add.html",context)
+	

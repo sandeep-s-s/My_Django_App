@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+	<h2 align="center">Form</h2>
+	{{ message }}
+	<br>
+	<form method="POST">
+		{% csrf_token %}
+		<!-- <input type="text" name="title" placeholder="Title">
+		<br>
+		<input type="number" name="price" placeholder="Price">
+		<br>
+		<textarea name="description" rows="5" placeholder="Description"></textarea>
+		<br>
+		<textarea name="summary" rows="5" placeholder="Summary"></textarea>
+		<br> -->
+		{{form.as_p}}
+		<input type="submit" name="submit" value="submit">
+	</form>
+{% endblock %}
+
+
+{% block test %}
+
+{% endblock %} 
