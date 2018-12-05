@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
+
 from django.http import HttpResponse
 
 from .models import Product
@@ -9,6 +10,11 @@ from .forms	 import RawProductForm
 
 
 from django.http import Http404
+
+
+from django.http import HttpResponseRedirect
+
+
 # Create your views here.
 def product_detail_view(request):
 	obj = Product.objects.get(id=1)
@@ -65,3 +71,15 @@ def product_edit_view(request,my_id):
 		return render(request,"product/product_edit.html",context)	
 	except Product.DoesNotExist:
 		raise Http404
+
+def product_delete_view(request,my_id):
+	print(my_id)
+	obj = get_object_or_404(Product,id=my_id)
+	if request.method == "POST":
+		obj.delete()
+		return HttpResponseRedirect("/home/")
+	else :
+		context = {
+			'object' : obj
+		}
+		return render(request,"product/product_delete.html",context)	
