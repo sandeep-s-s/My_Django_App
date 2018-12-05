@@ -6,6 +6,9 @@ from .models import Product
 from .forms	 import ProductForm
 
 from .forms	 import RawProductForm
+
+
+from django.http import Http404
 # Create your views here.
 def product_detail_view(request):
 	obj = Product.objects.get(id=1)
@@ -51,11 +54,14 @@ def product_add_view(request):
 	
 
 def product_edit_view(request,my_id):
-	obj = Product.objects.get(id=my_id)
-	form =ProductForm(request.POST or None,instance=obj)
-	if form.is_valid():
-		form.save()
-	context = {
-		'form': form
-	}
-	return render(request,"product/product_edit.html",context)	
+	try:
+		obj = Product.objects.get(id=my_id)
+		form =ProductForm(request.POST or None,instance=obj)
+		if form.is_valid():
+			form.save()
+		context = {
+			'form': form
+		}
+		return render(request,"product/product_edit.html",context)	
+	except Product.DoesNotExist:
+		raise Http404
