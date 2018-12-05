@@ -73,7 +73,6 @@ def product_edit_view(request,my_id):
 		raise Http404
 
 def product_delete_view(request,my_id):
-	print(my_id)
 	obj = get_object_or_404(Product,id=my_id)
 	if request.method == "POST":
 		obj.delete()
@@ -83,3 +82,11 @@ def product_delete_view(request,my_id):
 			'object' : obj
 		}
 		return render(request,"product/product_delete.html",context)	
+
+
+def product_list(request):
+	queryset = Product.objects.all();
+	context = {
+		"object_list" : queryset
+	}
+	return render(request,"product/product_list.html",context)	
