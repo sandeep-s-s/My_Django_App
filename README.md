@@ -1,7 +1,5 @@
-Django-2.0.7
+# Requirements:
 
-My Django Project
+  - Python3
+  - Django 2.0.7
 
-Django version : 2.0.7
-
-Python version : 3.5.2
