@@ -37,7 +37,7 @@ urlpatterns = [
     path('home/', views.home_view),
     path('about/', views.about_view),
     path('contact/', views.contact_view),
-    path('product/', product_detail_view),
+    path('product/<int:my_id>', product_detail_view),
     path('create/', product_create_view),
     path('add/', product_add_view),
     path('list-product/', product_list),
