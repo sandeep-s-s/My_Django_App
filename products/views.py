@@ -18,7 +18,6 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 def product_detail_view(request,my_id):
 	obj = Product.objects.get(id=my_id)
-	print(obj);
 	# context = {
 	# 	'title':obj.title,
 	# 	'description':obj.description,

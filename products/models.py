@@ -8,5 +8,8 @@ class Product(models.Model):
 	summary		= models.TextField()
 
 
+	# def get_absolute_url(self):
+	# 	return("/product/"+str(self.id)) 
+	
 	def get_absolute_url(self):
-		return("/product/"+str(self.id)) 
+		return(reverse("product-detail",kwargs={"my_id":self.id}))
