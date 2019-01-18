@@ -40,7 +40,8 @@ urlpatterns = [
     path('about/', views.about_view),
     path('contact/', views.contact_view),
 
-    path('',include('products.urls'))
+    path('',include('products.urls')),
+    path('',include('blog.urls'))
     # path('product/<int:my_id>', product_detail_view,name='product-detail'),
     # path('create/', product_create_view),
     # path('add/', product_add_view),
