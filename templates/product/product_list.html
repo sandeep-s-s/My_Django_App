@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 	<h2 align="center">List Products</h2>
+	<ul>
+		<li><a href="/create">Create</a></li>
+	</ul>
 	<br>
 	{% for instance in object_list %}
 	<p><b style="color:#f48024">Title : </b>{{instance.title}}</p>

@@ -7,7 +7,7 @@
 		{% csrf_token %}
 		{{form.as_p}}
 		<input type="submit" name="save" value="Create">
-		<a href="/blog"> cancel</a>
+		<a href="/blog-detail/{{object.id}}"> cancel</a>
 	</form>
 {% endblock %}
 
