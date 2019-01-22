@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from django.views.generic import TemplateView
 #pages view
 from  pages import views
 
@@ -41,12 +41,13 @@ urlpatterns = [
     path('contact/', views.contact_view),
 
     path('',include('products.urls')),
-    path('',include('blog.urls'))
+    path('',include('blog.urls')),  
     # path('product/<int:my_id>', product_detail_view,name='product-detail'),
     # path('create/', product_create_view),
     # path('add/', product_add_view),
     # path('list-product/', product_list),
     # path('edit-product/<int:my_id>/', product_edit_view),
     # path('delete-product/<int:my_id>/', product_delete_view),
+     path('privacy/', TemplateView.as_view(template_name="privacy.html"))
 ]
  
