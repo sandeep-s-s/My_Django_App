@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
-
+from django.urls import reverse
 from django.views.generic import (
-		ListView,DetailView,CreateView,UpdateView
+		ListView,DetailView,CreateView,UpdateView,DeleteView
 	)
 
 from .models import Blog
@@ -34,3 +34,12 @@ class BlogUpdateView(UpdateView):
 	def get_object(self):
 		id_ = self.kwargs.get("id")
 		return get_object_or_404(Blog,id=id_)  
+
+class  BlogDeleteView(DeleteView):
+	template_name = 'blog/blog_delete.html'
+	def get_object(self):
+		id_ = self.kwargs.get("id")
+		return get_object_or_404(Blog,id=id_)  
+
+	def get_success_url(self):
+		return reverse('blog-list')
