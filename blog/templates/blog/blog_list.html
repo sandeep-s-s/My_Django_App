@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-	<h2 align="center">List Products</h2>
+	<h2 align="center">List Blogs</h2>
 	<br>
 	{% for instance in object_list %}
 	<p><b style="color:#f48024">Title : </b>{{instance.title}}</p>
 	<p><b style="color:#f48024">Description : </b>{{instance.description}}</p>
+	<a href="/blog-detail/{{instance.id}}">Details</a>
 	<hr>
 	{% endfor %}
 {% endblock %}

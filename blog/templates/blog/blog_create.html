@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+	<h2 align="center">Create Blog Form</h2>
+	<br>
+	<form  method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" name="save" value="Create">
+	</form>
+{% endblock %}
+
+
+{% block test %}
+
+{% endblock %}
